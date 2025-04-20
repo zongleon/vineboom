@@ -54,7 +54,7 @@ async function setupWebcam() {
 
 async function loadFaceLandmarker() {
 	const vision = await FilesetResolver.forVisionTasks(
-		'/node_modules/@mediapipe/tasks-vision/wasm'
+		'https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@latest/wasm'
 	);
 	const faceLandmarker = await FaceLandmarker.createFromOptions(vision, {
 			baseOptions: {
