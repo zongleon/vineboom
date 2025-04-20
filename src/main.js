@@ -4,6 +4,7 @@ import { Chuck } from "webchuck";
 
 let theChuck;
 
+const fps = 30;
 const DRAW_MARKERS = false;
 let i = 1;
 
@@ -99,7 +100,7 @@ async function runFaceLandmarker(video, faceLandmarker) {
 	const ctx = canvas.getContext('2d');
 
 	// fps setup
-	let fps = 5, fpsInterval, startTime, now, then, elapsed;
+	let fpsInterval, startTime, now, then, elapsed;
 
 	function startRender(fps) {
 		fpsInterval = 1000 / fps;
@@ -146,9 +147,7 @@ async function runFaceLandmarker(video, faceLandmarker) {
 			let rightPupil = faceMarks[RIGHT_PUPIL];
 
 			const raised = isEyebrowRaised(avgLeft, avgRight, leftPupil, rightPupil);
-			theChuck.setFloat("diff", raised);
-			console.log(raised);
-			
+			theChuck.setFloat("diff", raised);	
 		}
 	}
 
